@@ -1,6 +1,6 @@
 import { Link} from "react-router-dom";
 
-function List() {
+function Chart() {
     return (
         <div>
 
@@ -9,4 +9,4 @@ function List() {
 
 };
 
-export default List;
+export default Chart;

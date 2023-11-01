@@ -1,10 +1,10 @@
-const { DummyList } = require("components/DummyList")
+import DummyList from "components/DummyList";
 
 function Home() {
     return (
         <div>
-            {/* <DummyList /> */}
             <h1>Home</h1>
+            <DummyList />      
         </div>   
     )
 }

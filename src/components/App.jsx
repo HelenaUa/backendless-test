@@ -1,38 +1,62 @@
 import React, { lazy, Suspense } from "react"
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { Routes, Switch, Route } from 'react-router-dom';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes, Navigate } from 'react-router-dom';
+
 import DummyList from './DummyList';
 import DummyTable from './DummyTable';
 import DummyChart from './DummyChart';
-import Home from '../pages/Home';
-import tabsData from '../tabs.json';
-// console.log(tabsData);
 
-// const Home = lazy(() => import('../pages/Home'));
+// import Home from '../pages/Home';
+import Table from "pages/Table";
+import Chart from "pages/Chart";
+import NotFound from "pages/NotFound";
 
-// 
-function getTabComponent(tabOrder) {
-  switch (tabOrder) {
-    case 'dummyTable':
-      return <DummyTable />;
-    case 'dummyChart':
-      return <DummyChart />;
-    case 'dummyList':
-      return <DummyList />;
-    default:
-      return null; 
-  }
-};
+import tabs from '../tabs.json';
+
+// const Home = lazy((path) => import(`./${path}`));
+
+
+const Home = (path) => {
+  const LazyComponent = lazy(() => import(`./${path}`));
+  return (
+    <main>
+        <Suspense fallback={<div>Loading...</div>}>
+            <LazyComponent />
+        </Suspense>
+    </main>
+);
+}
+
+
+
+// function getTabComponent(tabId) {
+//   switch (tabId) {
+//     case 'dummyTable':
+//       return <DummyTable />;
+//     case 'dummyChart':
+//       return <DummyChart />;
+//     case 'dummyList':
+//       return <DummyList />;
+//     default:
+//       return <NotFound />; 
+//   }
+// };
+
 
 export const App = () => {
   return (
     <div>
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-          {tabsData.map((tab) => (
-          <Route key={tab.order} path={`/${tab.order}`} element={getTabComponent(tab.order)} /> ))}
-     </Routes> */}
+       {tabs.map((tab) => (
+                        <NavLink key={tab.id} to={`/${tab.id}`}>
+                            {tab.title}
+                        </NavLink>
+                    ))}
+      <Routes>
+        <Route path="/" element={<Navigate to={`/${tabs[0].id}`} replace />} />
+          {tabs.map((tab) => (
+          <Route key={tab.id} path={tab.id} element={Home(tab.path)} /> ))}
+     </Routes>
 
 {/* <Routes>
       <Route path="/" element={<Home />} />
@@ -65,17 +89,18 @@ export const App = () => {
         </Suspense>
       </Switch> */}
 
-      <nav>
+      {/* <nav>
         <NavLink to="/">Dummy List</NavLink>
         <NavLink to="/localhost">Dummy Table</NavLink>
         <NavLink to="/localhost">Dummy Chart</NavLink>
-      </nav>
+      </nav> */}
 
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/localhost' element={<DummyTable />}/>
-        <Route path='/localhost' element={<DummyChart />}/>
-      </Routes> 
+        <Route path='/tabs/dummyTable.js' element={<Table />}/>
+        <Route path='/tabs/dummyChart.js' element={<Chart />}/>
+        <Route path='*' element={<NotFound />} />
+      </Routes>  */}
     </div>
   );
 };
