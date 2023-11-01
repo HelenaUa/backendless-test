@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-function DummyChart({id, title, order, path}) {
+function DummyChart() {
   return (
     <div>
       <h1>Dummy Chart</h1>

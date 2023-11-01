@@ -8,9 +8,9 @@ import { NavLink, Route, Routes, Navigate } from 'react-router-dom';
 // import DummyChart from './DummyChart';
 
 // import Home from '../pages/Home';
-import Table from "pages/Table";
-import Chart from "pages/Chart";
-import NotFound from "pages/NotFound";
+// import Table from "pages/Table";
+// import Chart from "pages/Chart";
+// import NotFound from "pages/NotFound";
 
 import tabs from '../tabs.json';
 
