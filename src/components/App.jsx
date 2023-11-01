@@ -3,9 +3,9 @@ import React, { lazy, Suspense } from "react"
 // import { Routes, Switch, Route } from 'react-router-dom';
 import { NavLink, Route, Routes, Navigate } from 'react-router-dom';
 
-import DummyList from './DummyList';
-import DummyTable from './DummyTable';
-import DummyChart from './DummyChart';
+// import DummyList from './DummyList';
+// import DummyTable from './DummyTable';
+// import DummyChart from './DummyChart';
 
 // import Home from '../pages/Home';
 import Table from "pages/Table";
