@@ -2,7 +2,13 @@ import React from 'react';
 
 function DummyTable() {
     return (
-      <div>
+      <div 
+        style={{
+          display: 'flex', 
+          flexDirection: 'column',
+          justifyContent: 'center',  
+          alignItems: 'center' 
+        }}>
         <h1>Dummy Table</h1>
         <table>
           <tbody> 

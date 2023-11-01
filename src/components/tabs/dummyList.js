@@ -2,9 +2,16 @@ import React from 'react';
 
 function DummyList() {
   return (
-    <div>
+    <div  
+      style={{
+        display: 'flex', 
+        flexDirection: 'column',
+        justifyContent: 'center',  
+        alignItems: 'center' 
+      }}
+    >
       <h1>Dummy List</h1>
-      {/* Ваш вміст для списку */}
+      <p>first (order: 0)</p>
     </div>
   );
 };

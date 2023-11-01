@@ -1,11 +1,20 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 function DummyChart() {
   return (
-    <div>
+    <div  
+      style={{
+        display: 'flex', 
+        flexDirection: 'column',
+        justifyContent: 'center',  
+        alignItems: 'center' 
+      }}
+    >
       <h1>Dummy Chart</h1>
-      {/* Ваш вміст для графіка */}
+        Welcome {' '}
+        <span role="img" aria-label="Greeting icon">
+          💁‍♀️
+        </span>
     </div>
   );
 };
